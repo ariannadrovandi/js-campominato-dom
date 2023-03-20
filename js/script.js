@@ -73,13 +73,25 @@ function generateBombs(bobmsNum, max) {
     return bombs;
 };
 
+// funzione per visualizzare il messaggio del punteggio
+function setMessage(message){
+    const score = document.getElementById('score');
+    score.innerHTML = message;
+};
+
 // evento levelForm
 function play(e) { 
     e.preventDefault();
     const playground = document.getElementById('playground');
     playground.innerHTML = '';
 
+    //bombe
     const numBombs = 16;
+
+    //messaggio 
+    let message = 'Seleziona la difficoltà e premi play';
+    setMessage(message);
+    
 
     //prendo il livello
     const level = document.getElementById('level').value;
