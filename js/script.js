@@ -91,7 +91,7 @@ function play(e) {
     //messaggio 
     let message = 'Seleziona la difficoltà e premi play';
     setMessage(message);
-    
+    let score = 0;
 
     //prendo il livello
     const level = document.getElementById('level').value;
@@ -122,15 +122,19 @@ function play(e) {
 
     for (let i = 1; i <= squareNumbers; i++) {
         const square = drawSquare(i, squareXRow);
-        square.addEventListener('click', handleSquareEvent());
+        square.addEventListener('click', handleSquareEvent);
         playground.appendChild(square);
     };
 
     function handleSquareEvent() {
         if (bombs.includes(parseInt(this.innerText))){
             this.classList.add('unsafe');
+            message=`Hai perso!!! il tuo punteggio è: ${score}`;
         } else {
             this.classList.add('safe');
-        };     
+            score++;
+            message = score === maxScore ? `Hai vinto !!! Il tuo punteggio è: ${score}` : `Il tuo punteggio è: ${score}`;
+        };  
+        setMessage(message);   
     };
 };
