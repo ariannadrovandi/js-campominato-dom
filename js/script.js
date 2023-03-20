@@ -110,9 +110,15 @@ function play(e) {
 
     for (let i = 1; i <= squareNumbers; i++) {
         const square = drawSquare(i, squareXRow);
-        square.addEventListener('click', function () {
-            this.classList.add('safe');
-        });
+        square.addEventListener('click', handleSquareEvent());
         playground.appendChild(square);
+    };
+
+    function handleSquareEvent() {
+        if (bombs.includes(parseInt(this.innerText))){
+            this.classList.add('unsafe');
+        } else {
+            this.classList.add('safe');
+        };     
     };
 };
