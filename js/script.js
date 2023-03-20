@@ -61,11 +61,25 @@ function drawSquare(content, sideNumSquares) {
     return square;
 };
 
+// *** funzione per generare l'array dell e bombe
+function generateBombs(bobmsNum, max) {
+    const bombs = [];
+    while (bombs.length < bobmsNum){ 
+        const bomb = getRndNumber(1, max);
+        if (!bombs.includes(bomb)){
+            bombs.push(bomb);  
+        };
+    };
+    return bombs;
+};
+
 // evento levelForm
 function play(e) { 
     e.preventDefault();
     const playground = document.getElementById('playground');
     playground.innerHTML = '';
+
+    const numBombs = 16;
 
     //prendo il livello
     const level = document.getElementById('level').value;
@@ -89,6 +103,10 @@ function play(e) {
     //determino il numero di celle per lato 
     let squareXRow = Math.sqrt(squareNumbers);
     console.log(squareXRow);
+
+    //genero l'array con le bombe
+    const bombs = generateBombs(numBombs, squareNumbers);
+    console.log(bombs);
 
     for (let i = 1; i <= squareNumbers; i++) {
         const square = drawSquare(i, squareXRow);
