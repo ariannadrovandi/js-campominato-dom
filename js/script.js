@@ -79,6 +79,16 @@ function setMessage(message){
     score.innerHTML = message;
 };
 
+// mostra tutte le bombe se clicco su una 
+function showAllBombs(bombs) {
+    const squares = document.querySelectorAll('.square');
+    for (let square of squares) {
+        if (bombs.includes(parseInt(square.innerText))) {
+            square.classList.add('unsafe');
+        };
+    };
+};
+
 // evento levelForm
 function play(e) { 
     e.preventDefault();
@@ -138,6 +148,7 @@ function play(e) {
                 this.classList.add('unsafe');
                 message=`Hai perso!!! il tuo punteggio è: ${score}`;
                 gameOver = true;
+                showAllBombs(bombs);
             } else {
                 this.classList.add('safe');
                 score++;
