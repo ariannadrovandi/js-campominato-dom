@@ -28,12 +28,18 @@ main{
     align-items: center;
 }
 
+.square span{
+    opacity: 0.5;
+}
+
 .safe{
-    background-color: #16166D;
-    color: #FFFFFF;
+    background-image: url(../img/stella\ blue.PNG);
+    color: transparent;
+    
 }
 
 .unsafe{
-    background-color: #a61919;
-    color: #FFFFFF;
+    background-image: url(../img/bomba\ red.PNG);
+    color: transparent;
+    
 }

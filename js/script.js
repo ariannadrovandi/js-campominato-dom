@@ -57,7 +57,7 @@ function drawSquare(content, sideNumSquares) {
     square.classList.add('square');
     square.style.width = `calc(100% / ${sideNumSquares})`;
     square.style.height = square.style.width;
-    square.innerHTML = content;
+    square.innerHTML = `<span>${content}</span>`;
     return square;
 };
 
