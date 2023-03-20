@@ -93,6 +93,9 @@ function play(e) {
     setMessage(message);
     let score = 0;
 
+    //termina partita
+    let gameOver = false;
+
     //prendo il livello
     const level = document.getElementById('level').value;
     console.log(level);
@@ -120,6 +123,8 @@ function play(e) {
     const bombs = generateBombs(numBombs, squareNumbers);
     console.log(bombs);
 
+    let maxScore =squareNumbers - numBombs;
+
     for (let i = 1; i <= squareNumbers; i++) {
         const square = drawSquare(i, squareXRow);
         square.addEventListener('click', handleSquareEvent);
@@ -127,14 +132,18 @@ function play(e) {
     };
 
     function handleSquareEvent() {
-        if (bombs.includes(parseInt(this.innerText))){
-            this.classList.add('unsafe');
-            message=`Hai perso!!! il tuo punteggio è: ${score}`;
-        } else {
-            this.classList.add('safe');
-            score++;
-            message = score === maxScore ? `Hai vinto !!! Il tuo punteggio è: ${score}` : `Il tuo punteggio è: ${score}`;
-        };  
-        setMessage(message);   
+        console.log(this.classList.contains('safe'));
+        if (!gameOver && !this.classList.contains('safe')){
+            if (bombs.includes(parseInt(this.innerText))){
+                this.classList.add('unsafe');
+                message=`Hai perso!!! il tuo punteggio è: ${score}`;
+                gameOver = true;
+            } else {
+                this.classList.add('safe');
+                score++;
+                message = score === maxScore ? `Hai vinto !!! Il tuo punteggio è: ${score}` : `Il tuo punteggio è: ${score}`;
+            };  
+            setMessage(message); 
+        }  
     };
 };
