@@ -1,0 +1,34 @@
+.wrapper{
+    width: 100%;
+    height: 100vh;
+    background-color: #7FFFD4;
+}
+
+header, footer{
+    background-color: white;
+    height: 90px;
+}
+main{
+    height: calc(100% - 180px);
+    overflow-y: auto;
+}
+
+#playground{
+    width: 500px;
+    height: 500px;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.square{
+    cursor: crosshair;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.safe{
+    background-color: #16166D;
+    color: #FFFFFF;
+}
