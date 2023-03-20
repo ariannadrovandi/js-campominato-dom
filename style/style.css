@@ -32,3 +32,8 @@ main{
     background-color: #16166D;
     color: #FFFFFF;
 }
+
+.unsafe{
+    background-color: #a61919;
+    color: #FFFFFF;
+}
