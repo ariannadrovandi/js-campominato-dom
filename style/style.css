@@ -29,17 +29,19 @@ main{
 }
 
 .square span{
-    opacity: 0.5;
+    opacity: 0.7;
 }
 
 .safe{
-    background-image: url(../img/stella\ blue.PNG);
-    color: transparent;
-    
+    width: 5px;
+    height: 5px;
+    background-color: #1a1aba;
+    color: white;
 }
 
 .unsafe{
-    background-image: url(../img/bomba\ red.PNG);
-    color: transparent;
-    
+    width: 5px;
+    height: 5px;
+    background-color: #ad1919;
+    color: white;
 }
